@@ -6,6 +6,15 @@ const app = express();
 const PORT = 3600;
 app.use(bodyParser.json());
 
+//Adding cors to allow +5s requests:
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
 // Conecting Data:
 const conection = mysql.createPool({
   host: "mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com",
@@ -29,12 +38,15 @@ app.get("/bsale/products", (req, res) => {
   });
 });
 
-//Adding cors to allow +5s requests:
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
+//Getting categories
+app.get("/bsale/category/", (req, res) => {
+  const sql = `SELECT * FROM category`;
+  conection.query(sql, (err, results) => {
+    if (err) throw err;
+    if (results.length > 0) {
+      res.json(results);
+    } else {
+      res.send("No se encontraron resultados");
+    }
+  });
 });
