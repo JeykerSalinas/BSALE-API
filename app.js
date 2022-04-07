@@ -1,13 +1,15 @@
 const path = require("path");
 const express = require("express");
-const mysql = require("mysql");
 const bodyParser = require("body-parser");
 const { Console } = require("console");
+const conection = require("./config/database");
 const app = express();
-const PORT = 3600;
+require("dotenv").config();
+const PORT = process.env.PORT || 3600;
+
 app.use(bodyParser.json());
 
-//Adding cors to allow +5s requests:
+//Adding cors to allow requests:
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -15,13 +17,6 @@ app.use(function (req, res, next) {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   next();
-});
-// Conecting Data:
-const conection = mysql.createPool({
-  host: "mdb-test.c6vunyturrl6.us-west-1.rds.amazonaws.com",
-  user: "bsale_test",
-  password: "bsale_test",
-  database: "bsale_test",
 });
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
