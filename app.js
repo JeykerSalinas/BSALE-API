@@ -6,7 +6,7 @@ const conection = require("./config/database");
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 3600;
-const host = process.env.HOST || '0.0.0.0'
+const HOST = process.env.HOST || '0.0.0.0'
 
 app.use(bodyParser.json());
 
@@ -20,7 +20,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.listen(PORT, host, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, HOST, () => console.log(`Server running on port ${PORT}`));
 
 //Getting products:
 app.get("/bsale/products", (req, res) => {
