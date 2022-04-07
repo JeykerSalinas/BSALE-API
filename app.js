@@ -6,7 +6,7 @@ const conection = require("./config/database");
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 3600;
-const HOST = process.env.HOST || '0.0.0.0'
+const HOST = '0.0.0.0'
 
 app.use(bodyParser.json());
 
