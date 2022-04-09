@@ -26,14 +26,13 @@
       </div>
       <div class="row">
         <div class="input-group my-4">
-          <label class="w-100">Obteniendo todos los productos:</label>
           <span class="input-group-text" id="basic-addon1"
             >https://api-bsale-jeyker.herokuapp.com/bsale/</span
           >
           <input
             type="text"
             class="form-control"
-            placeholder="ingresar parámetro"
+            placeholder="Ingresar ruta"
             aria-label="Username"
             aria-describedby="basic-addon1"
           />
@@ -42,20 +41,27 @@
           </button>
         </div>
         <div class="col-12 my-4">
-          <p>Params:</p>
+          <p>Endpoints:</p>
           <ul class="list-group">
             <li class="list-group-item">
-              <code>products</code> para obtener todos los productos
+              <code><span class="text-info">(GET)</span>products</code> para
+              obtener todos los productos
             </li>
             <li class="list-group-item">
-              <code>category</code> para obtener todas las categorías
+              <code><span class="text-info">(GET)</span>category</code> para
+              obtener todas las categorías
             </li>
             <li class="list-group-item">
-              <code>category/:category</code> para filtrar productos por id de
-              categoría
+              <code
+                ><span class="text-info">(GET)</span>category/:category</code
+              >
+              para filtrar productos por id de categoría
             </li>
             <li class="list-group-item">
-              <code>products/name/:name</code> para filtrar productos por nombre
+              <code
+                ><span class="text-info">(GET)</span>products/name/:name</code
+              >
+              para filtrar productos por nombre
             </li>
           </ul>
         </div>

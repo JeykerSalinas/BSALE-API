@@ -30,6 +30,17 @@ _Para clonar este repositorio dirígete al siguiente link:_
 npm install
 ```
 
+*Las variables de entorno están manejadas con el Dotenv. Para poder acceder a la base de datos, se deben proporcionar de manera local. La estuctura de variables es la siguiente:* 
+
+```
+HOSTDABASE = "Host de base de datos"
+USER_DATABASE= "Usuario"
+PASSWORD= "Contraseña"
+DATABASE= "Base de datos"
+PORT = "Puerto local"
+HOST= "Localhost"
+```
+
 *Luego iniciar con "npm start"*
 
 ```
@@ -38,7 +49,7 @@ npm start
 
 ## Descripción técnina 🛠️
 
-Documentación de la API: 
+A través del módule de Node.js, Mysql se realizó la conexión con la base de datos proporcionada. Luego se crearon los endpoint para obtener la data necesaria para el funcionamiento de la aplicación. Para ver el detalle de éstos puedes mirar la documentación del siguiente link: [https://api-bsale-jeyker.herokuapp.com/]()
 
 <!-- ## Wiki 📖
 
@@ -52,12 +63,10 @@ Usamos [SemVer](http://semver.org/) para el versionado. Para todas las versiones
 
 _En este proyecto se han utilizado las siguientes tecnologías:_
 
-* [HTML5 y CSS3](https://www.w3.org/) - Como lenguajes de etiquetas y estilos.
-* [Vanilla Javascript](https://www.w3.org/) - Lenguaje puro
-* [Bootstrap 5](https://bootstrap-vue.org/) - Librería aplicada para los estilos CSS
+* [Node.js](https://www.w3.org/)
+* [Express](https://www.w3.org/) - como framework backend
 * [Git](https://bootstrap-vue.org/) - Control de versiones
-* [Netlify](https://bootstrap-vue.org/) - Como plataforma de hosting
-* [GitHub Pages](https://bootstrap-vue.org/) - Para deploy alternativo
+* [Heroku](https://bootstrap-vue.org/) - Como plataforma de hosting
 
 <!-- ## Wiki 📖
 
