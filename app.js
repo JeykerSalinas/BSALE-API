@@ -6,11 +6,10 @@ const conection = require("./config/database");
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 3600;
-const HOST = '0.0.0.0'
+const HOST = process.env.HOST || "0.0.0.0";
 
 app.use(bodyParser.json());
 
-//Adding cors to allow requests:
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
@@ -22,8 +21,13 @@ app.use(function (req, res, next) {
 
 app.listen(PORT, HOST, () => console.log(`Server running on port ${PORT}`));
 
-
-//Getting products:
+/**
+ * Add products
+ * @constructor
+ * @param {string} url - The title of the book.
+ * @param {object} response - The author of the book.
+ */
+const getProducts = () => {};
 app.get("/bsale/products", (req, res) => {
   const sql = "SELECT * FROM product";
   conection.query(sql, (err, results) => {
@@ -77,5 +81,5 @@ app.get("/bsale/products/name/:name", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, '/index.html'));
-})
+  res.sendFile(path.join(__dirname, "/index.html"));
+});
