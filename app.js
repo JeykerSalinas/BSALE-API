@@ -1,25 +1,25 @@
 const path = require("path");
 const express = require("express");
-const bodyParser = require("body-parser");
-const { Console } = require("console");
 const conection = require("./config/database");
 const app = express();
+const cors = require('cors')
 require("dotenv").config();
 const PORT = process.env.PORT || 3600;
 const HOST = "0.0.0.0";
 
-app.use(bodyParser.json());
-
+app.use(express.json());
+app.use(cors())
 //Adding cors
-app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept"
+//   );
+//   next();
+// });
 
+// Este método levanta el servidor
 app.listen(PORT, HOST, () => console.log(`Server running on port ${PORT}`));
 
 //Getting all products
@@ -28,7 +28,8 @@ app.get("/bsale/products", (req, res) => {
   conection.query(sql, (err, results) => {
     if (err) throw err;
     if (results.length > 0) {
-      res.json(results);
+      res.status(200).status(200).json(results);
+      
     } else {
       res.send("No se encontraron resultados");
     }
@@ -41,7 +42,7 @@ app.get("/bsale/category/", (req, res) => {
   conection.query(sql, (err, results) => {
     if (err) throw err;
     if (results.length > 0) {
-      res.json(results);
+      res.status(200).json(results);
     } else {
       res.send("No se encontraron resultados");
     }
@@ -54,7 +55,7 @@ app.get("/bsale/products/category/:id", (req, res) => {
   conection.query(sql, (err, results) => {
     if (err) throw err;
     if (results.length > 0) {
-      res.json(results);
+      res.status(200).json(results);
     } else {
       res.send("No se encontraron resultados");
     }
@@ -68,7 +69,7 @@ app.get("/bsale/products/name/:name", (req, res) => {
   conection.query(sql, (err, results) => {
     if (err) throw err;
     if (results.length > 0) {
-      res.json(results);
+      res.status(200).json(results);
     } else {
       res.send("No se encontraron resultados");
     }

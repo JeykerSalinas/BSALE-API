@@ -4,12 +4,13 @@
   "description": "Desafío realizado como prueba técnica para Bsale",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"   
+    "start": "node app.js"
   },
   "author": "Jeyker Salinas",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "env": "^0.0.2",
     "express": "^4.17.3",

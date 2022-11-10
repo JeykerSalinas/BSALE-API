@@ -11,5 +11,4 @@ const conection = mysql.createPool({
     database: process.env.DATABASE,
   });
 
-  
 module.exports = conection;
